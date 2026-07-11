@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs / OS noise
+*.log
+Thumbs.db
+
+# Dependency dirs (none used, but guard against future tooling)
+node_modules/

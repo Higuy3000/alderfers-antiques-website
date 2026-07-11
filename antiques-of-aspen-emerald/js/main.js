@@ -1,0 +1,118 @@
+/* =====================================================================
+   Alderfer's Antiques of Aspen — interactions
+   Vanilla JS, no dependencies. Loaded with `defer` on every page.
+   ===================================================================== */
+(function () {
+  "use strict";
+
+  /* ---------- Mobile nav toggle ---------- */
+  var toggle = document.querySelector(".nav__toggle");
+  var links = document.querySelector(".nav__links");
+
+  if (toggle && links) {
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("is-open");
+      toggle.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+
+    // Close the menu after following a link (single-page anchor or nav).
+    links.addEventListener("click", function (e) {
+      if (e.target.closest("a")) {
+        links.classList.remove("is-open");
+        toggle.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ---------- Header shadow on scroll (depth cue) ---------- */
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- Set current year in footer ---------- */
+  var yearEl = document.querySelector("[data-year]");
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+
+  /* ---------- Reveal-on-scroll ---------- */
+  var revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+    }
+  }
+
+  /* ---------- Gallery lightbox ---------- */
+  var lightbox = document.querySelector(".lightbox");
+
+  if (lightbox) {
+    var content = lightbox.querySelector(".lightbox__content");
+    var caption = lightbox.querySelector(".lightbox__caption");
+    var closeBtn = lightbox.querySelector(".lightbox__close");
+    var lastFocused = null;
+
+    function openLightbox(sourceEl) {
+      lastFocused = sourceEl;
+      var inner = sourceEl.querySelector("img, .ph");
+      var label = sourceEl.getAttribute("data-caption") || (inner && inner.getAttribute("alt")) || "";
+
+      // Clone the visual (image or styled placeholder) into the lightbox.
+      content.innerHTML = "";
+      if (inner) {
+        var clone = inner.cloneNode(true);
+        clone.style.transform = "none";
+        content.appendChild(clone);
+      }
+      caption.textContent = label;
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocused) { lastFocused.focus(); }
+    }
+
+    document.querySelectorAll(".gallery__item").forEach(function (item) {
+      item.addEventListener("click", function () { openLightbox(item); });
+      item.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(item);
+        }
+      });
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) { closeLightbox(); }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+      }
+    });
+  }
+})();
