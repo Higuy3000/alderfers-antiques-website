@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview · Dark — Alderfer's Antiques of Aspen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IM+Fell+English:ital@0;1&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== Silver & Spruce — the lamplit room (DARK) ===== */
+    :root{
+      --spruce:#14201E;      /* deep warm green-black */
+      --patina:#1C302B;      /* lifted panel */
+      --patina-2:#22392F;
+      --silver:#D9D6CC;      /* oxidized-silver body text */
+      --silver-dim:#9AA79C;  /* muted */
+      --turq:#5FA99B;        /* aspen turquoise accent */
+      --turq-bright:#7CC6B7;
+      --brass:#C79A54;       /* lamp brass */
+      --bone:#EAE1CB;        /* manila tag paper */
+      --line:rgba(217,214,204,0.16);
+      --display:"IM Fell English", Georgia, serif;
+      --head:"Fraunces", Georgia, serif;
+      --body:"Spectral", Georgia, serif;
+      --maxw:1200px;
+      --gutter:clamp(1.25rem,4vw,3.25rem);
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    *{margin:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:var(--body);
+      background-color:var(--spruce);
+      color:var(--silver);
+      font-size:1.08rem;
+      line-height:1.72;
+      -webkit-font-smoothing:antialiased;
+      background-image:
+        radial-gradient(rgba(199,154,84,0.05) 1px,transparent 1px),
+        radial-gradient(rgba(95,169,155,0.04) 1px,transparent 1px);
+      background-size:30px 30px,30px 30px;
+      background-position:0 0,15px 15px;
+    }
+    .container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);}
+    a{color:inherit;text-decoration:none;}
+    .eyebrow{
+      font-family:var(--head);
+      text-transform:uppercase;
+      letter-spacing:0.34em;
+      font-size:0.72rem;
+      font-weight:600;
+      color:var(--brass);
+    }
+
+    /* ---- Header ---- */
+    .site-header{
+      position:absolute;top:0;left:0;right:0;z-index:10;
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:84px;}
+    .brand__name{font-family:var(--display);font-size:1.65rem;color:var(--silver);letter-spacing:0.01em;}
+    .brand__sub{font-family:var(--head);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.32em;color:var(--brass);margin-left:0.5rem;}
+    .nav__links{display:flex;gap:2rem;list-style:none;}
+    .nav__links a{font-family:var(--head);font-size:0.74rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--silver-dim);transition:color .3s;}
+    .nav__links a:hover{color:var(--silver);}
+
+    /* ---- Hero: the lamp blooms on ---- */
+    .hero{
+      position:relative;
+      min-height:clamp(600px,90vh,860px);
+      display:grid;place-items:center;text-align:center;
+      overflow:hidden;
+      background:
+        radial-gradient(ellipse 60% 45% at 50% 34%, rgba(43,58,50,0.9), transparent 70%),
+        linear-gradient(180deg,#0F1917 0%, #14201E 55%, #101A18 100%);
+    }
+    /* warm lamplight glow that animates in */
+    .hero__lamp{
+      position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 46% 42% at 50% 30%, rgba(199,154,84,0.26), rgba(199,154,84,0.07) 45%, transparent 68%);
+      transform:scale(0.6);opacity:0;
+      animation:lampOn 1.9s cubic-bezier(.2,.6,.2,1) .15s forwards;
+    }
+    .hero__vignette{
+      position:absolute;inset:0;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse at center, transparent 42%, rgba(8,13,11,0.66) 100%);
+    }
+    @keyframes lampOn{to{transform:scale(1);opacity:1;}}
+    .hero__inner{position:relative;z-index:2;padding:var(--gutter);max-width:900px;}
+    .hero h1{
+      font-family:var(--display);
+      font-weight:400;
+      color:var(--silver);
+      font-size:clamp(3rem,8.5vw,6.6rem);
+      line-height:0.98;
+      letter-spacing:0.01em;
+      text-shadow:0 2px 40px rgba(199,154,84,0.18);
+    }
+    .hero h1 em{font-style:italic;color:var(--brass);}
+    .hero__lead{
+      font-family:var(--body);
+      font-size:clamp(1.05rem,1.8vw,1.28rem);
+      color:var(--silver-dim);
+      max-width:46ch;margin:1.6rem auto 2.3rem;
+    }
+    .ampersand-rule{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.5rem auto;color:var(--brass);}
+    .ampersand-rule::before,.ampersand-rule::after{content:"";height:1px;width:clamp(40px,10vw,90px);background:linear-gradient(var(--d,to right),transparent,var(--brass));}
+    .ampersand-rule::before{--d:to left;}
+    .ampersand-rule span{font-family:var(--display);font-style:italic;font-size:1.3rem;}
+    .btn{
+      display:inline-block;font-family:var(--head);font-weight:600;
+      text-transform:uppercase;letter-spacing:0.2em;font-size:0.76rem;
+      padding:1.05em 2.4em;border:1px solid var(--brass);color:var(--brass);
+      transition:background .35s,color .35s;
+    }
+    .btn:hover{background:var(--brass);color:var(--spruce);}
+    .btn--turq{border-color:var(--turq);color:var(--turq-bright);}
+    .btn--turq:hover{background:var(--turq);color:var(--spruce);}
+
+    .scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;color:var(--brass);font-family:var(--head);font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:0.6rem;}
+    .scroll-cue::after{content:"";width:1px;height:36px;background:linear-gradient(var(--brass),transparent);}
+
+    /* estate tag pinned in hero corner */
+    .hero__tag{position:absolute;top:120px;right:clamp(1rem,6vw,5rem);z-index:2;}
+
+    /* ---- The estate tag (signature) ---- */
+    .lot{display:inline-flex;flex-direction:column;align-items:center;}
+    .lot__string{width:1px;height:26px;background:linear-gradient(var(--silver-dim),transparent);opacity:0.6;}
+    .lot__tag{
+      position:relative;
+      background:var(--bone);
+      color:#2B271D;
+      padding:1.15rem 1.35rem 0.9rem;
+      min-width:104px;text-align:center;
+      clip-path:polygon(50% 0,100% 16%,100% 100%,0 100%,0 16%);
+      transform:rotate(-4deg);transform-origin:top center;
+      box-shadow:0 14px 26px -14px rgba(0,0,0,0.7);
+      transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+    }
+    .lot__tag::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--spruce);box-shadow:inset 0 1px 2px rgba(0,0,0,0.5);}
+    .lot:hover .lot__tag{transform:rotate(3deg);}
+    .lot__no{font-family:var(--display);font-style:italic;font-size:0.72rem;letter-spacing:0.12em;color:#7A6B4C;display:block;margin-top:0.35rem;}
+    .lot__num{font-family:var(--head);font-weight:700;font-size:1.35rem;line-height:1;color:#2B271D;}
+    .lot--turq .lot__tag{background:linear-gradient(160deg,#7CC6B7,#4C9689);color:#0E1B18;}
+    .lot--turq .lot__no{color:rgba(14,27,24,0.7);}
+    .lot--turq .lot__num{color:#0E1B18;}
+
+    /* ---- Info strip ---- */
+    .strip{background:var(--patina);border-block:1px solid var(--line);}
+    .strip .container{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1rem,4vw,3.5rem);padding-block:1.3rem;text-align:center;}
+    .strip__item{font-size:0.9rem;color:var(--silver-dim);}
+    .strip__item strong{display:block;font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:0.14em;font-size:0.68rem;color:var(--brass);margin-bottom:0.2rem;}
+
+    /* ---- Catalogue ---- */
+    .catalogue{padding-block:clamp(4rem,9vw,7rem);}
+    .cat-head{text-align:center;margin-bottom:clamp(2.5rem,6vw,4rem);}
+    .cat-head h2{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,3.8rem);color:var(--silver);margin-top:0.6rem;}
+    .cat-head p{color:var(--silver-dim);max-width:52ch;margin:1rem auto 0;}
+
+    .lot-row{
+      display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(2rem,5vw,4.5rem);
+      align-items:center;padding-block:clamp(2.2rem,5vw,3.6rem);
+      border-top:1px solid var(--line);
+    }
+    .lot-row:last-child{border-bottom:1px solid var(--line);}
+    .lot-row--reverse .lot-row__media{order:2;}
+    .lot-row__body{display:flex;gap:1.4rem;align-items:flex-start;}
+    .lot-row__text h3{font-family:var(--head);font-weight:600;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--silver);line-height:1.05;}
+    .lot-row__text .eyebrow{margin-bottom:0.5rem;}
+    .lot-row__text p{color:var(--silver-dim);margin-top:0.8rem;max-width:42ch;}
+    .lot-row__text .more{display:inline-block;margin-top:1.1rem;font-family:var(--head);font-size:0.74rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--turq-bright);border-bottom:1px solid rgba(124,198,183,0.4);padding-bottom:2px;}
+
+    /* framed media — like a picture on a dark wall */
+    .frame{position:relative;padding:14px;background:var(--patina);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,0.8);}
+    .frame::after{content:"";position:absolute;inset:20px;border:1px solid var(--brass);opacity:0.35;pointer-events:none;}
+    .ph{
+      aspect-ratio:4/5;display:grid;place-items:center;text-align:center;
+      background:
+        repeating-linear-gradient(45deg,rgba(199,154,84,0.05) 0 14px,transparent 14px 28px),
+        linear-gradient(150deg,#20342D,#16241F);
+      color:var(--brass);font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:0.2em;font-size:0.9rem;padding:1rem;
+    }
+    .ph--turq{color:var(--turq-bright);background:repeating-linear-gradient(45deg,rgba(95,169,155,0.07) 0 14px,transparent 14px 28px),linear-gradient(150deg,#1B322D,#132420);}
+
+    .preview-banner{background:var(--brass);color:var(--spruce);text-align:center;font-family:var(--head);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-size:0.72rem;padding:0.6rem;}
+
+    @media (max-width:820px){
+      .nav__links{display:none;}
+      .hero__tag{display:none;}
+      .lot-row{grid-template-columns:1fr;gap:2rem;}
+      .lot-row--reverse .lot-row__media{order:0;}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .hero__lamp{animation:none;opacity:1;transform:none;}
+      html{scroll-behavior:auto;}
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-banner">Preview — Dark “Silver &amp; Spruce”</div>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#"><span class="brand__name">Alderfer's Antiques</span><span class="brand__sub">of Aspen</span></a>
+      <ul class="nav__links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">The Catalogue</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__lamp"></div>
+      <div class="hero__vignette"></div>
+      <div class="hero__tag">
+        <div class="lot">
+          <span class="lot__string"></span>
+          <div class="lot__tag"><span class="lot__num">No. 001</span><span class="lot__no">est. Aspen</span></div>
+        </div>
+      </div>
+      <div class="hero__inner">
+        <p class="eyebrow">Est. on Main Street &middot; Aspen, Colorado</p>
+        <div class="ampersand-rule"><span>&amp;</span></div>
+        <h1>A Room Full of<br><em>Found Things</em></h1>
+        <p class="hero__lead">Four rooms of the unexpected — luxury vintage, Western heritage, silver &amp; turquoise, and the occasional irresistible oddity. Gathered from estate sales, waiting to be discovered.</p>
+        <a class="btn btn--turq" href="#">Step Inside</a>
+      </div>
+      <span class="scroll-cue">Step Inside</span>
+    </section>
+
+    <section class="strip">
+      <div class="container">
+        <div class="strip__item"><strong>Find Us</strong>309 E Main St, Aspen</div>
+        <div class="strip__item"><strong>Hours</strong>Mon–Sat · 11am – 5:30pm</div>
+        <div class="strip__item"><strong>Call</strong>(970) 925-5051</div>
+      </div>
+    </section>
+
+    <section class="catalogue container">
+      <div class="cat-head">
+        <p class="eyebrow">Ever-Changing · One of a Kind</p>
+        <h2>The Catalogue</h2>
+        <p>Our rooms are loosely sorted by mood and era, but half the pleasure is the overlap. A taste of what tends to turn up — though the inventory changes with every estate we visit.</p>
+      </div>
+
+      <div class="lot-row">
+        <div class="lot-row__body">
+          <div class="lot"><span class="lot__string"></span><div class="lot__tag"><span class="lot__num">No. 214</span><span class="lot__no">Apparel</span></div></div>
+          <div class="lot-row__text">
+            <p class="eyebrow">Luxury Vintage</p>
+            <h3>Vintage &amp; Designer Clothing</h3>
+            <p>Pieces with history stitched into every seam — the kind of garments that anchor a wardrobe and start conversations. Found, cared for, ready for their next chapter.</p>
+            <a class="more" href="#">See the room →</a>
+          </div>
+        </div>
+        <div class="lot-row__media"><div class="frame"><div class="ph">Vintage &amp;<br>Designer</div></div></div>
+      </div>
+
+      <div class="lot-row lot-row--reverse">
+        <div class="lot-row__body">
+          <div class="lot"><span class="lot__string"></span><div class="lot__tag"><span class="lot__num">No. 191</span><span class="lot__no">Southwest</span></div></div>
+          <div class="lot-row__text">
+            <p class="eyebrow">The Signature</p>
+            <h3>Silver &amp; Turquoise</h3>
+            <p>Silver and turquoise jewelry, textiles, and collectible works reflecting the cultural heritage of the American Southwest and Mountain West. Selected with care and respect.</p>
+            <a class="more" href="#">See the room →</a>
+          </div>
+        </div>
+        <div class="lot-row__media"><div class="frame"><div class="ph ph--turq">Silver &amp;<br>Turquoise</div></div></div>
+      </div>
+
+      <div class="lot-row">
+        <div class="lot-row__body">
+          <div class="lot lot--turq"><span class="lot__string"></span><div class="lot__tag"><span class="lot__num">Just In</span><span class="lot__no">this week</span></div></div>
+          <div class="lot-row__text">
+            <p class="eyebrow">Find of the Moment</p>
+            <h3>Western Heritage</h3>
+            <p>Cowboy boots, buckles, and ranch-country textiles that carry the spirit of the Rockies. Because everything here is one of a kind, the best finds tend to go home the day they're seen.</p>
+            <a class="more" href="#">Ask about this piece →</a>
+          </div>
+        </div>
+        <div class="lot-row__media"><div class="frame"><div class="ph">Western<br>Heritage</div></div></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
