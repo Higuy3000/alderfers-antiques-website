@@ -60,6 +60,25 @@
     }
   }
 
+  /* ---------- Sticky mobile action bar ---------- */
+  var actionBar = document.querySelector(".action-bar");
+  var footer = document.querySelector(".site-footer");
+  if (actionBar) {
+    var updateBar = function () {
+      // Show once past the first screen…
+      var pastFold = window.scrollY > 480;
+      // …but hide when the footer is in view so the bar never covers it.
+      var footerVisible = false;
+      if (footer) {
+        footerVisible = footer.getBoundingClientRect().top < window.innerHeight;
+      }
+      actionBar.classList.toggle("is-visible", pastFold && !footerVisible);
+    };
+    window.addEventListener("scroll", updateBar, { passive: true });
+    window.addEventListener("resize", updateBar, { passive: true });
+    updateBar();
+  }
+
   /* ---------- Gallery lightbox ---------- */
   var lightbox = document.querySelector(".lightbox");
 
