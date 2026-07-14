@@ -404,6 +404,48 @@ p { max-width: 65ch; }
 }
 
 /* =====================================================================
+   Interactive display case — click a category to read about it
+   ===================================================================== */
+.case .s-head h2 { font-family: var(--display); font-weight: 400; }
+.case .s-head p { margin-top: 1rem; }
+.case__layout { display: grid; grid-template-columns: 264px 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+
+.case__menu { display: flex; flex-direction: column; gap: 0.5rem; }
+.case__tile {
+  display: flex; align-items: baseline; gap: 0.7rem; width: 100%; text-align: left;
+  padding: 0.9rem 1.1rem; background: var(--bone); border: 1px solid var(--line);
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.case__tile:hover { transform: translateX(3px); }
+.case__tile:focus-visible { outline: 2px solid var(--turq); outline-offset: 2px; }
+.case__tile[aria-selected="true"] { background: var(--spruce); border-color: var(--spruce); }
+.case__tile-no { flex: none; font-family: var(--display); font-style: italic; font-size: 0.82rem; color: var(--brass); }
+.case__tile-name { font-family: var(--head); font-weight: 600; font-size: 0.98rem; color: var(--ink); }
+.case__tile[aria-selected="true"] .case__tile-name { color: var(--paper); }
+.case__tile[aria-selected="true"] .case__tile-no { color: var(--brass-glow); }
+
+.case__panel { display: none; }
+.case__panel.is-active { display: grid; grid-template-columns: 0.85fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; animation: caseFade 0.4s ease; }
+@keyframes caseFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.case__panel-text .eyebrow { margin-bottom: 0.4rem; }
+.case__panel-text h3 { font-family: var(--display); font-weight: 400; margin-top: 0.1rem; }
+.case__panel-text > p { color: var(--ink-soft); margin-top: 0.8rem; }
+.case__panel-text .case__look { color: var(--brass); font-family: var(--head); font-size: 0.8rem; letter-spacing: 0.03em; margin-top: 1.1rem; }
+.case__cta { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; margin-top: 1.6rem; }
+.case__cta .more { margin-top: 0; }
+
+@media (max-width: 880px) {
+  .case__layout { grid-template-columns: 1fr; }
+  .case__menu { flex-direction: row; flex-wrap: wrap; }
+  .case__tile { width: auto; flex: 1 1 44%; }
+  .case__panel.is-active { grid-template-columns: 1fr; }
+}
+@media (max-width: 540px) {
+  .case__tile { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .case__panel.is-active { animation: none; } }
+
+/* =====================================================================
    Trust & conversion — customer reviews + sticky mobile action bar
    ===================================================================== */
 
@@ -457,4 +499,96 @@ p { max-width: 65ch; }
 }
 @media (prefers-reduced-motion: reduce) {
   .action-bar { transition: none; }
+}
+
+/* =====================================================================
+   Immersive rework — top info bar, Aspen background, big image panels,
+   and the big-letters finale
+   ===================================================================== */
+
+/* ---------- Top info bar (everything a visitor wants, up top) ---------- */
+.topbar { background: var(--spruce); color: var(--paper); }
+.topbar .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(0.5rem, 3vw, 2.2rem); padding-block: 0.55rem; text-align: center; }
+.topbar__item { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.82rem; color: rgba(231, 227, 214, 0.85); }
+.topbar__item strong { font-family: var(--head); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.66rem; color: var(--brass-glow); }
+.topbar a { color: inherit; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
+.topbar a:hover { border-color: var(--brass-glow); }
+
+/* ---------- Aspen mountains (shared SVG, themeable) ---------- */
+.mountains { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: min(60%, 520px); z-index: 1; display: block; }
+.mtn-back { fill: #A6B6AA; }
+.mtn-mid  { fill: #728878; }
+.mtn-front{ fill: #475A50; }
+.mtn-snow { fill: #EDE7D9; }
+
+/* ---------- Aspen hero ---------- */
+.hero--aspen {
+  position: relative; min-height: clamp(600px, 92vh, 900px);
+  display: grid; place-items: center; text-align: center; overflow: hidden;
+  background: linear-gradient(to bottom, #F2EDDF 0%, #E9E4D7 40%, #D8DED4 70%, #C7D1C8 100%);
+}
+.hero--aspen .sun {
+  position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+  width: clamp(120px, 22vw, 220px); aspect-ratio: 1; border-radius: 50%; z-index: 0;
+  background: radial-gradient(circle, rgba(216, 179, 106, 0.5), rgba(216, 179, 106, 0.1) 55%, transparent 72%);
+}
+.hero--aspen .hero__inner { position: relative; z-index: 2; padding: var(--gutter); max-width: 900px; }
+.hero__brand { font-family: var(--display); font-weight: 400; font-size: clamp(2.8rem, 8vw, 6rem); line-height: 0.98; color: var(--ink); letter-spacing: 0.01em; }
+.hero__brand em { font-style: italic; color: var(--brass); }
+.hero--aspen .hero__lead { color: var(--ink-soft); }
+
+/* ---------- Showcase: big clickable image panels ---------- */
+.item-panel {
+  position: relative; display: block; overflow: hidden;
+  min-height: clamp(66vh, 76vh, 800px); border-top: 1px solid rgba(243, 238, 224, 0.12);
+}
+.item-panel__media { position: absolute; inset: 0; z-index: 0; }
+.item-panel__media .ph, .item-panel__media img {
+  width: 100%; height: 100%; object-fit: cover; padding: 0;
+  transition: transform 1.4s var(--transition);
+}
+.item-panel__media .ph {
+  background:
+    repeating-linear-gradient(45deg, rgba(154, 116, 51, 0.05) 0 26px, transparent 26px 52px),
+    linear-gradient(150deg, #D2CAB4, #B7BFAB);
+}
+.item-panel--turq .item-panel__media .ph {
+  background:
+    repeating-linear-gradient(45deg, rgba(46, 125, 110, 0.08) 0 26px, transparent 26px 52px),
+    linear-gradient(150deg, #B8C6BD, #A6BAB0);
+}
+.item-panel__scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(18, 26, 22, 0.74) 0%, rgba(18, 26, 22, 0.28) 45%, rgba(18, 26, 22, 0.08) 100%); }
+.item-panel__label { position: absolute; z-index: 2; left: clamp(1.5rem, 6vw, 6rem); bottom: clamp(2rem, 7vw, 5rem); color: var(--paper); max-width: 34ch; }
+.item-panel--right .item-panel__label { left: auto; right: clamp(1.5rem, 6vw, 6rem); text-align: right; }
+.item-panel__no { font-family: var(--display); font-style: italic; font-size: clamp(1rem, 2vw, 1.25rem); color: var(--brass-glow); }
+.item-panel__name { font-family: var(--display); font-weight: 400; font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: 0.98; color: var(--paper); margin: 0.35rem 0 0.6rem; }
+.item-panel__desc { font-size: clamp(1rem, 1.6vw, 1.15rem); color: rgba(243, 238, 224, 0.88); margin-bottom: 1.1rem; }
+.item-panel--right .item-panel__label .item-panel__desc { margin-left: auto; }
+.item-panel__cue { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--head); font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.78rem; color: var(--paper); border-bottom: 1px solid rgba(243, 238, 224, 0.5); padding-bottom: 4px; transition: gap var(--transition), border-color var(--transition); }
+.item-panel:hover .item-panel__cue { gap: 0.95rem; border-color: var(--brass-glow); }
+.item-panel:hover .item-panel__media .ph, .item-panel:hover .item-panel__media img { transform: scale(1.05); }
+.item-panel:focus-visible { outline: 3px solid var(--brass-glow); outline-offset: -3px; }
+
+/* ---------- Finale: the store name in big letters ---------- */
+.finale { position: relative; overflow: hidden; background: linear-gradient(to bottom, #1C302B, #14201E); color: var(--paper); text-align: center; padding-block: clamp(4.5rem, 11vw, 9rem); }
+.finale .mountains { opacity: 0.55; height: min(52%, 380px); }
+.finale .mtn-back { fill: #24403A; }
+.finale .mtn-mid  { fill: #1E3630; }
+.finale .mtn-front{ fill: #182B26; }
+.finale .mtn-snow { fill: rgba(237, 231, 217, 0.5); }
+.finale__inner { position: relative; z-index: 2; padding-inline: var(--gutter); }
+.finale .eyebrow { color: var(--brass-glow); }
+.finale__name { font-family: var(--display); font-weight: 400; font-size: clamp(2.8rem, 11vw, 8rem); line-height: 0.92; color: var(--paper); }
+.finale__name em { display: block; font-style: italic; font-size: 0.42em; letter-spacing: 0.3em; text-transform: uppercase; color: var(--brass-glow); margin-top: 0.6rem; }
+.finale__address { font-family: var(--head); font-size: clamp(1.15rem, 2.6vw, 1.7rem); color: var(--paper); margin-top: 1.6rem; }
+.finale__info { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(0.8rem, 3vw, 2.4rem); margin-top: 1.4rem; font-size: 0.98rem; color: rgba(231, 227, 214, 0.85); }
+.finale__info a { color: inherit; border-bottom: 1px solid transparent; transition: border-color var(--transition); }
+.finale__info a:hover { border-color: var(--brass-glow); }
+.finale__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2.4rem; }
+
+.finale-legal { background: #14201E; padding-block: 1.2rem; }
+.finale-legal .footer-bottom { border-top: none; padding-top: 0; }
+
+@media (max-width: 540px) {
+  .item-panel__label, .item-panel--right .item-panel__label { left: clamp(1.2rem, 6vw, 2rem); right: auto; text-align: left; }
 }

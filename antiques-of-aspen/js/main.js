@@ -60,6 +60,41 @@
     }
   }
 
+  /* ---------- Interactive display case (tabs) ---------- */
+  var caseEl = document.querySelector(".case");
+  if (caseEl) {
+    var caseTabs = Array.prototype.slice.call(caseEl.querySelectorAll(".case__tile"));
+    var casePanels = caseEl.querySelectorAll(".case__panel");
+
+    var selectCase = function (target, focusTab) {
+      caseTabs.forEach(function (t) {
+        var on = t.dataset.target === target;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        if (on && focusTab) { t.focus(); }
+      });
+      casePanels.forEach(function (p) {
+        p.classList.toggle("is-active", p.id === target);
+      });
+    };
+
+    caseTabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { selectCase(t.dataset.target); });
+      t.addEventListener("keydown", function (e) {
+        var idx = null;
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") { idx = (i + 1) % caseTabs.length; }
+        else if (e.key === "ArrowUp" || e.key === "ArrowLeft") { idx = (i - 1 + caseTabs.length) % caseTabs.length; }
+        else if (e.key === "Home") { idx = 0; }
+        else if (e.key === "End") { idx = caseTabs.length - 1; }
+        if (idx !== null) { e.preventDefault(); selectCase(caseTabs[idx].dataset.target, true); }
+      });
+    });
+
+    // Set initial roving tabindex from the pre-selected tab.
+    var initial = caseEl.querySelector('.case__tile[aria-selected="true"]') || caseTabs[0];
+    if (initial) { selectCase(initial.dataset.target); }
+  }
+
   /* ---------- Sticky mobile action bar ---------- */
   var actionBar = document.querySelector(".action-bar");
   var footer = document.querySelector(".site-footer");

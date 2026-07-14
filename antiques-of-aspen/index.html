@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- ===== Top info bar (everything a visitor wants, up top) ===== -->
+  <div class="topbar">
+    <div class="container">
+      <span class="topbar__item"><strong>Find Us</strong> 309 E Main St, Aspen, CO</span>
+      <span class="topbar__item"><strong>Open</strong> Mon–Sat · 11am – 5:30pm</span>
+      <span class="topbar__item"><strong>Call</strong> <a href="tel:+19709255051">(970) 925-5051</a></span>
+      <span class="topbar__item"><strong>Follow</strong> <a href="https://www.instagram.com/alderferantiques/" target="_blank" rel="noopener">@alderferantiques</a></span>
+    </div>
+  </div>
+
   <!-- ===== Header ===== -->
   <header class="site-header">
     <nav class="nav container" aria-label="Primary">
@@ -24,223 +34,135 @@
       </button>
       <ul class="nav__links" id="primary-menu">
         <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
         <li><a href="collections.html">Catalogue</a></li>
         <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="visit.html">Visit</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- ===== Hero: the lamp comes up on the room ===== -->
-    <section class="hero">
-      <div class="hero__lamp" aria-hidden="true"></div>
-      <div class="hero__tag" aria-hidden="true">
-        <div class="lot">
-          <span class="lot__string"></span>
-          <div class="lot__tag"><span class="lot__num">No. 001</span><span class="lot__no">est. Aspen</span></div>
-        </div>
-      </div>
+    <!-- ===== Aspen hero ===== -->
+    <section class="hero hero--aspen">
+      <div class="sun" aria-hidden="true"></div>
+      <svg class="mountains" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+        <path class="mtn-back" d="M0,420 L0,180 L180,60 L340,190 L520,90 L720,210 L900,110 L1120,205 L1300,90 L1440,175 L1440,420 Z"/>
+        <path class="mtn-mid" d="M0,420 L0,250 L230,150 L430,255 L640,165 L840,265 L1050,175 L1270,255 L1440,195 L1440,420 Z"/>
+        <path class="mtn-front" d="M0,420 L0,320 L280,255 L540,330 L800,262 L1060,332 L1320,270 L1440,318 L1440,420 Z"/>
+        <path class="mtn-snow" d="M156,86 L180,60 L204,86 Z M496,114 L520,90 L544,114 Z M876,132 L900,110 L924,132 Z M1276,112 L1300,90 L1324,112 Z"/>
+      </svg>
       <div class="hero__inner">
-        <p class="eyebrow">309 E Main Street &middot; Aspen, Colorado</p>
+        <p class="eyebrow">Antiques &amp; Vintage &middot; Aspen, Colorado</p>
         <div class="rule"><span class="rule__mark">&amp;</span></div>
-        <h1>A Room Full of<br><em>Found Things</em></h1>
-        <p class="hero__lead">Four rooms of antiques, luxury vintage, Western wear, and Native American silver and turquoise — bought from estate sales and private collections around the Rockies. The stock changes every week.</p>
-        <a class="btn btn--turq" href="collections.html">See What's In</a>
+        <h1 class="hero__brand">A Room Full of<br><em>Found Things</em></h1>
+        <p class="hero__lead">Four rooms of the unexpected, gathered from estate sales around the Rockies. Scroll to see what we sell — then come find it on Main Street.</p>
       </div>
-      <span class="scroll-cue" aria-hidden="true">The Rooms</span>
+      <span class="scroll-cue" aria-hidden="true">Start Scrolling</span>
     </section>
 
-    <!-- ===== Ledger strip (shop facts) ===== -->
-    <section class="ledger">
-      <div class="container">
-        <span>Four rooms</span>
-        <span>Estate-sourced</span>
-        <span>One of a kind</span>
-        <span>Open Mon–Sat</span>
-      </div>
-    </section>
+    <!-- ===== Showcase: big clickable image panels ===== -->
+    <div class="showcase">
 
-    <!-- ===== Welcome ===== -->
-    <section class="section">
-      <div class="container s-head reveal">
-        <p class="eyebrow">The Shop</p>
-        <h2>A Few Connected Rooms on Main Street</h2>
-        <div class="rule"><span class="rule__mark">&amp;</span></div>
-        <p class="measure muted">Alderfer's is a handful of rooms on Aspen's Main Street, packed with antiques and vintage. We buy from estate sales and private collections and put things out as they come in, so the stock turns over constantly — what's here this week won't all be here next.</p>
-      </div>
-    </section>
+      <a class="item-panel item-panel--turq reveal" href="silver.html" aria-label="Silver &amp; Turquoise — view the room">
+        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
+        <div class="item-panel__scrim" aria-hidden="true"></div>
+        <div class="item-panel__label">
+          <span class="item-panel__no">No. 191</span>
+          <h2 class="item-panel__name">Silver &amp; Turquoise</h2>
+          <p class="item-panel__desc">Squash blossoms, cuffs, concho belts, and rings — Native American silver and turquoise.</p>
+          <span class="item-panel__cue">View the room &rarr;</span>
+        </div>
+      </a>
 
-    <!-- ===== The Catalogue (featured lots) ===== -->
-    <section class="section" style="padding-top:0">
-      <div class="container">
-        <div class="s-head reveal">
-          <p class="eyebrow">Rotates Weekly &middot; One of a Kind</p>
-          <h2>A Few Lots on the Floor</h2>
+      <a class="item-panel item-panel--right reveal" href="western.html" aria-label="Western Wear — view the room">
+        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
+        <div class="item-panel__scrim" aria-hidden="true"></div>
+        <div class="item-panel__label">
+          <span class="item-panel__no">No. 207</span>
+          <h2 class="item-panel__name">Western Wear</h2>
+          <p class="item-panel__desc">Cowboy boots, belt buckles, hats, and worn-in workwear. The real thing.</p>
+          <span class="item-panel__cue">View the room &rarr;</span>
         </div>
+      </a>
 
-        <div class="lot-row reveal">
-          <div class="lot-row__body">
-            <div class="lot"><span class="lot__string"></span><div class="lot__tag"><span class="lot__num">No. 214</span><span class="lot__no">Apparel</span></div></div>
-            <div class="lot-row__text">
-              <p class="eyebrow">Luxury Vintage</p>
-              <h3>Vintage &amp; Designer Clothing</h3>
-              <p>Designer labels and luxury vintage, in whatever sizes and decades estate sales turn up. Looked over and priced to wear.</p>
-              <a class="more" href="collections.html">See the room &rarr;</a>
-            </div>
-          </div>
-          <div class="lot-row__media"><div class="frame"><div class="ph">Vintage &amp;<br>Designer</div></div></div>
+      <a class="item-panel reveal" href="vintage.html" aria-label="Vintage &amp; Designer Clothing — view the room">
+        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
+        <div class="item-panel__scrim" aria-hidden="true"></div>
+        <div class="item-panel__label">
+          <span class="item-panel__no">No. 214</span>
+          <h2 class="item-panel__name">Vintage &amp; Designer</h2>
+          <p class="item-panel__desc">Designer labels and luxury vintage clothing, priced to wear.</p>
+          <span class="item-panel__cue">View the room &rarr;</span>
         </div>
+      </a>
 
-        <div class="lot-row lot-row--reverse reveal">
-          <div class="lot-row__body">
-            <div class="lot"><span class="lot__string"></span><div class="lot__tag"><span class="lot__num">No. 191</span><span class="lot__no">Southwest</span></div></div>
-            <div class="lot-row__text">
-              <p class="eyebrow">The Signature</p>
-              <h3>Silver &amp; Turquoise</h3>
-              <p>Native American silver and turquoise — squash blossoms, cuffs, concho belts, and rings — plus Southwestern textiles and pottery.</p>
-              <a class="more" href="collections.html">See the room &rarr;</a>
-            </div>
-          </div>
-          <div class="lot-row__media"><div class="frame"><div class="ph ph--turq">Silver &amp;<br>Turquoise</div></div></div>
+      <a class="item-panel item-panel--right reveal" href="furniture.html" aria-label="Furniture &amp; Decor — view the room">
+        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
+        <div class="item-panel__scrim" aria-hidden="true"></div>
+        <div class="item-panel__label">
+          <span class="item-panel__no">No. 168</span>
+          <h2 class="item-panel__name">Furniture &amp; Decor</h2>
+          <p class="item-panel__desc">Tables, cabinets, glassware, pottery, and American country pieces.</p>
+          <span class="item-panel__cue">View the room &rarr;</span>
         </div>
+      </a>
 
-        <div class="lot-row reveal">
-          <div class="lot-row__body">
-            <div class="lot"><span class="lot__string"></span><div class="lot__tag"><span class="lot__num">No. 207</span><span class="lot__no">Western</span></div></div>
-            <div class="lot-row__text">
-              <p class="eyebrow">Ranch Country</p>
-              <h3>Western Wear</h3>
-              <p>Cowboy boots, belt buckles, hats, and worn-in workwear. The real thing, not costume.</p>
-              <a class="more" href="collections.html">See the room &rarr;</a>
-            </div>
-          </div>
-          <div class="lot-row__media"><div class="frame"><div class="ph">Western<br>Wear</div></div></div>
+      <a class="item-panel reveal" href="jewelry.html" aria-label="Estate Jewelry — view the room">
+        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
+        <div class="item-panel__scrim" aria-hidden="true"></div>
+        <div class="item-panel__label">
+          <span class="item-panel__no">No. 142</span>
+          <h2 class="item-panel__name">Estate Jewelry</h2>
+          <p class="item-panel__desc">Rings, brooches, watches, and beads — fine and costume both.</p>
+          <span class="item-panel__cue">View the room &rarr;</span>
         </div>
+      </a>
 
-        <div class="center" style="margin-top:2.8rem">
-          <a class="btn btn--brass" href="collections.html">See the Full Catalogue</a>
+      <a class="item-panel item-panel--turq item-panel--right reveal" href="art.html" aria-label="Art &amp; Curiosities — view the room">
+        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
+        <div class="item-panel__scrim" aria-hidden="true"></div>
+        <div class="item-panel__label">
+          <span class="item-panel__no">No. 113</span>
+          <h2 class="item-panel__name">Art &amp; Curiosities</h2>
+          <p class="item-panel__desc">Paintings, prints, old books, and the one-off oddities.</p>
+          <span class="item-panel__cue">View the room &rarr;</span>
         </div>
-      </div>
-    </section>
+      </a>
 
-    <!-- ===== Find of the Moment ===== -->
-    <section class="section" style="padding-top:0">
-      <div class="container split reveal">
-        <div class="split__media">
-          <div class="frame"><div class="ph ph--turq">Just In</div></div>
-        </div>
-        <div class="split__body">
-          <span class="tag">Just In &middot; This Week</span>
-          <p class="eyebrow" style="margin-top:1.1rem">One at a Time</p>
-          <h2>What Just Came In</h2>
-          <div class="rule rule--left"><span class="rule__mark">&amp;</span></div>
-          <p class="muted">We put one recent find here at a time. There's only ever one of each, so if something catches your eye, don't sit on it — call and ask about it, or come see it.</p>
-          <p style="margin-top:1.6rem"><a class="btn btn--turq" href="visit.html">Ask About This Piece</a></p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- ===== How we buy ===== -->
-    <section class="section" style="padding-top:0">
-      <div class="container split split--reverse reveal">
-        <div class="split__media">
-          <div class="frame"><div class="ph">Inside the Shop</div></div>
+    <!-- ===== Finale: the store name in big letters ===== -->
+    <section class="finale">
+      <svg class="mountains" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+        <path class="mtn-back" d="M0,420 L0,180 L180,60 L340,190 L520,90 L720,210 L900,110 L1120,205 L1300,90 L1440,175 L1440,420 Z"/>
+        <path class="mtn-mid" d="M0,420 L0,250 L230,150 L430,255 L640,165 L840,265 L1050,175 L1270,255 L1440,195 L1440,420 Z"/>
+        <path class="mtn-front" d="M0,420 L0,320 L280,255 L540,330 L800,262 L1060,332 L1320,270 L1440,318 L1440,420 Z"/>
+        <path class="mtn-snow" d="M156,86 L180,60 L204,86 Z M496,114 L520,90 L544,114 Z M876,132 L900,110 L924,132 Z M1276,112 L1300,90 L1324,112 Z"/>
+      </svg>
+      <div class="finale__inner">
+        <p class="eyebrow">Come Find Us</p>
+        <h2 class="finale__name">Alderfer's Antiques<em>of Aspen</em></h2>
+        <p class="finale__address">309 E Main Street &middot; Aspen, Colorado 81611</p>
+        <div class="finale__info">
+          <span>Mon–Sat · 11am – 5:30pm</span>
+          <a href="tel:+19709255051">(970) 925-5051</a>
+          <a href="https://www.instagram.com/alderferantiques/" target="_blank" rel="noopener">@alderferantiques</a>
         </div>
-        <div class="split__body">
-          <p class="eyebrow">How We Buy</p>
-          <h2>Bought by Hand, One at a Time</h2>
-          <div class="rule rule--left"><span class="rule__mark">&amp;</span></div>
-          <p class="muted">Furniture, jewelry, art, glassware, books, and odds and ends — bought one piece at a time, not ordered from a catalog. Ask where something came from or how old it is, and we'll tell you what we know and what we're guessing at.</p>
-          <p style="margin-top:1.4rem"><a class="btn" href="about.html">About the Shop</a></p>
+        <div class="finale__cta">
+          <a class="btn btn--onDark" href="https://www.google.com/maps/search/?api=1&query=Alderfer%27s+Antiques+309+E+Main+St+Aspen+CO+81611" target="_blank" rel="noopener">Get Directions</a>
+          <a class="btn btn--onDark" href="tel:+19709255051">Call the Shop</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== Pull-quote ===== -->
-    <section class="section quote">
-      <div class="container reveal">
-        <blockquote>We don't restock. We resell. Everything here is here once.</blockquote>
-        <cite>Alderfer's Antiques &middot; 309 E Main St</cite>
-      </div>
-    </section>
-
-    <!-- ===== Reviews ===== -->
-    <section class="section reviews">
-      <div class="container">
-        <div class="s-head reveal">
-          <p class="eyebrow">From Google</p>
-          <h2>What People Say</h2>
-        </div>
-        <div class="reviews__grid">
-          <blockquote class="review reveal">
-            <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="review__text">Cute little boutique run by an Aspen local. Owner is charming — have patience and appreciate longstanding stores in Aspen.</p>
-            <cite class="review__by">Imani J. <span>&middot; via Google</span></cite>
-          </blockquote>
-          <blockquote class="review reveal">
-            <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="review__text">Great vintage Ralph Lauren!</p>
-            <cite class="review__by">Sonni D. <span>&middot; via Google</span></cite>
-          </blockquote>
-          <blockquote class="review reveal">
-            <div class="review__stars" aria-label="4 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-            <p class="review__text">Cute — unique vintage trinkets, furniture, jewelry, clothes, and more.</p>
-            <cite class="review__by">Sammy V. <span>&middot; via Google</span></cite>
-          </blockquote>
-        </div>
-        <div class="center reviews__more reveal">
-          <a href="https://www.google.com/maps/search/?api=1&query=Alderfer%27s+Antiques+309+E+Main+St+Aspen+CO+81611" target="_blank" rel="noopener">Read more on Google &#8599;</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CTA ===== -->
-    <section class="section cta">
-      <div class="container reveal">
-        <p class="eyebrow">Visit</p>
-        <h2>Come By the Shop</h2>
-        <div class="rule"><span class="rule__mark">&amp;</span></div>
-        <p class="measure">We're at 309 E Main Street, open Monday through Saturday. Come in, take your time, and look around — no pressure to buy anything.</p>
-        <p style="margin-top:1.8rem"><a class="btn btn--onDark" href="visit.html">Hours &amp; Directions</a></p>
-      </div>
-    </section>
-  </main>
-
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer__brand">
-          <span class="brand__name">Alderfer's Antiques of Aspen</span>
-          <p>Antiques, luxury vintage, and Native American silver and turquoise on Aspen's Main Street. Estate-sourced, one of a kind.</p>
-        </div>
-        <div>
-          <h4>Explore</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="collections.html">Catalogue</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="visit.html">Visit</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Visit</h4>
-          <ul class="footer-links">
-            <li>309 E Main St<br>Aspen, CO 81611</li>
-            <li><a href="tel:+19709255051">(970) 925-5051</a></li>
-            <li>Mon–Sat · 11am – 5:30pm</li>
-            <li><a href="https://www.instagram.com/alderferantiques/" target="_blank" rel="noopener">Instagram &#8599;</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
+    <div class="finale-legal">
+      <div class="container footer-bottom">
         <span>&copy; <span data-year>2026</span> Alderfer's Antiques of Aspen. All rights reserved.</span>
         <span>Hours vary seasonally — please call ahead.</span>
       </div>
     </div>
-  </footer>
+  </main>
 
   <!-- Sticky mobile action bar (shown on small screens after scroll) -->
   <div class="action-bar" aria-label="Quick actions">
