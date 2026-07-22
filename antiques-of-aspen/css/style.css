@@ -322,7 +322,7 @@ p { max-width: 65ch; }
 }
 .gallery__item:hover, .gallery__item:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow); outline: none; }
 .gallery__item .ph { aspect-ratio: var(--ar, 1); }
-.gallery__item img { width: 100%; }
+.gallery__item img { width: 100%; height: auto; display: block; }
 
 /* ---------- Lightbox ---------- */
 .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(20, 28, 24, 0.93); display: none; place-items: center; padding: clamp(1rem, 5vw, 3rem); }
