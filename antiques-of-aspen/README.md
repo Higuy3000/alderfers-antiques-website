@@ -26,9 +26,8 @@ Then open <http://localhost:8000> in your browser. (Python 3 ships with macOS.)
 
 ```
 Antiques of Aspen/
-├── index.html         # Home — hero, welcome, featured categories, CTA
+├── index.html         # Home — hero, real customer reviews (Google + Yelp), CTA
 ├── about.html         # The shop's story + provenance/authenticity
-├── collections.html   # Six collection categories with descriptions
 ├── gallery.html       # Framed grid + click-to-enlarge lightbox
 ├── visit.html         # Address, hours, phone, Google Map, inquiry note
 ├── css/style.css      # Entire design system (one shared stylesheet)

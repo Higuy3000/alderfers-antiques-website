@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -24,7 +24,6 @@
       </button>
       <ul class="nav__links" id="primary-menu">
         <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="collections.html">Catalogue</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="visit.html">Visit</a></li>
@@ -49,70 +48,72 @@
       <span class="scroll-cue" aria-hidden="true">Scroll</span>
     </section>
 
-    <!-- ===== Showcase: full-screen clickable panels ===== -->
-    <div class="showcase">
-
-      <a class="item-panel item-panel--turq" href="silver.html" aria-label="Silver &amp; Turquoise">
-        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
-        <div class="item-panel__scrim" aria-hidden="true"></div>
-        <div class="item-panel__label reveal">
-          <h2 class="item-panel__name">Silver &amp; Turquoise</h2>
-          <p class="item-panel__desc">Squash blossoms, cuffs, and concho belts.</p>
-          <span class="item-panel__cue">View &rarr;</span>
+    <!-- ===== Word of mouth: real reviews popping up as you scroll ===== -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="s-head reveal">
+          <p class="eyebrow">Word of Mouth</p>
+          <h2>What People Say</h2>
+          <div class="rule"><span class="rule__mark">&amp;</span></div>
+          <p class="measure muted">Real reviews from Google and Yelp, left by people who wandered in.</p>
         </div>
-      </a>
 
-      <a class="item-panel" href="western.html" aria-label="Western Wear">
-        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
-        <div class="item-panel__scrim" aria-hidden="true"></div>
-        <div class="item-panel__label reveal">
-          <h2 class="item-panel__name">Western Wear</h2>
-          <p class="item-panel__desc">Boots and buckles with real mileage.</p>
-          <span class="item-panel__cue">View &rarr;</span>
+        <div class="pop-grid">
+          <div class="pop-col">
+            <blockquote class="review review--photo pop" style="--pop-delay: 0s">
+              <figure class="review__photo">
+                <img src="assets/img/gallery/cowboy-boots-wall.jpg" alt="Shelves stacked with vintage cowboy boots in every color under a lamp" width="1050" height="1400" loading="lazy" />
+              </figure>
+              <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review__text">Hidden gem in Aspen, Colorado! Very authentic and has great pieces.</p>
+              <cite class="review__by">elle middleton <span>&middot; via Google</span></cite>
+            </blockquote>
+
+            <blockquote class="review pop" style="--pop-delay: 0.1s">
+              <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review__text">A nice little shop with a nice little assortment of goodies! I love my mummy hands &mdash; ok, it's just an old dried up Chinese root &mdash; but it's great &mdash; I'm a weirdo!</p>
+              <cite class="review__by">Jeff W. <span>&middot; via Yelp</span></cite>
+            </blockquote>
+          </div>
+
+          <div class="pop-col">
+            <blockquote class="review review--feature pop" style="--pop-delay: 0.15s">
+              <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review__text">This is the best curated antique store I have ever visited! The owner is a lovely, Aspen gem. Definitely a must see!!</p>
+              <cite class="review__by">Fredericka M. <span>&middot; via Yelp</span></cite>
+            </blockquote>
+
+            <blockquote class="review pop" style="--pop-delay: 0.25s">
+              <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review__text">Great vintage Ralph Lauren!</p>
+              <cite class="review__by">Sonni D. <span>&middot; via Google</span></cite>
+            </blockquote>
+
+            <blockquote class="review pop" style="--pop-delay: 0.35s">
+              <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review__text">My son loved the cash register I got him. He is so kind and he always respects us&hellip;</p>
+              <cite class="review__by">Brandon Levithan <span>&middot; via Google</span></cite>
+            </blockquote>
+          </div>
+
+          <div class="pop-col">
+            <blockquote class="review review--photo pop" style="--pop-delay: 0.3s">
+              <figure class="review__photo">
+                <img src="assets/img/gallery/front-porch.jpg" alt="The turquoise-railed front porch with a bench, flowers, and the Antiques sign by the open door" width="1050" height="1400" loading="lazy" />
+              </figure>
+              <div class="review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="review__text">Cute little boutique run by an Aspen local. Owner is older but charming&hellip; I found some great pieces and the owner was super sweet. Will definitely return. :-)</p>
+              <cite class="review__by">Imani Jones <span>&middot; via Google</span></cite>
+            </blockquote>
+          </div>
         </div>
-      </a>
 
-      <a class="item-panel" href="vintage.html" aria-label="Vintage &amp; Designer Clothing">
-        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
-        <div class="item-panel__scrim" aria-hidden="true"></div>
-        <div class="item-panel__label reveal">
-          <h2 class="item-panel__name">Vintage &amp; Designer</h2>
-          <p class="item-panel__desc">Labels worth knowing, priced to wear.</p>
-          <span class="item-panel__cue">View &rarr;</span>
+        <div class="center reviews__more reveal">
+          <a href="https://www.google.com/maps/search/?api=1&query=Alderfer%27s+Antiques+309+E+Main+St+Aspen+CO+81611" target="_blank" rel="noopener">Read more on Google &#8599;</a>
+          <a href="https://www.yelp.com/biz/alderfers-antiques-aspen" target="_blank" rel="noopener">Read more on Yelp &#8599;</a>
         </div>
-      </a>
-
-      <a class="item-panel" href="furniture.html" aria-label="Furniture &amp; Decor">
-        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
-        <div class="item-panel__scrim" aria-hidden="true"></div>
-        <div class="item-panel__label reveal">
-          <h2 class="item-panel__name">Furniture &amp; Decor</h2>
-          <p class="item-panel__desc">Tables, cabinets, and country pieces.</p>
-          <span class="item-panel__cue">View &rarr;</span>
-        </div>
-      </a>
-
-      <a class="item-panel" href="jewelry.html" aria-label="Estate Jewelry">
-        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
-        <div class="item-panel__scrim" aria-hidden="true"></div>
-        <div class="item-panel__label reveal">
-          <h2 class="item-panel__name">Estate Jewelry</h2>
-          <p class="item-panel__desc">Rings and brooches, fresh from estates.</p>
-          <span class="item-panel__cue">View &rarr;</span>
-        </div>
-      </a>
-
-      <a class="item-panel item-panel--turq" href="art.html" aria-label="Art &amp; Curiosities">
-        <div class="item-panel__media"><div class="ph" aria-hidden="true"></div></div>
-        <div class="item-panel__scrim" aria-hidden="true"></div>
-        <div class="item-panel__label reveal">
-          <h2 class="item-panel__name">Art &amp; Curiosities</h2>
-          <p class="item-panel__desc">Paintings, books, and the odd find.</p>
-          <span class="item-panel__cue">View &rarr;</span>
-        </div>
-      </a>
-
-    </div>
+      </div>
+    </section>
 
     <!-- ===== Finale: the store name in big letters ===== -->
     <section class="finale">

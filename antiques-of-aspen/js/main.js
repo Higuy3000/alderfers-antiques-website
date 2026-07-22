@@ -42,8 +42,8 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
-  /* ---------- Reveal-on-scroll ---------- */
-  var revealEls = document.querySelectorAll(".reveal");
+  /* ---------- Reveal-on-scroll (.pop cards spring up with a stagger) ---------- */
+  var revealEls = document.querySelectorAll(".reveal, .pop");
   if (revealEls.length) {
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
